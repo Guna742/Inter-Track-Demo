@@ -1,0 +1,407 @@
+/* =========================================
+   InternTrack — Keyframe Animations Library
+   ========================================= */
+
+/* ── Entrance ── */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-32px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(32px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ── Page Transition ── */
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Utility ── */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    15% {
+        transform: translateX(-10px);
+    }
+
+    30% {
+        transform: translateX(9px);
+    }
+
+    45% {
+        transform: translateX(-7px);
+    }
+
+    60% {
+        transform: translateX(6px);
+    }
+
+    75% {
+        transform: translateX(-4px);
+    }
+
+    90% {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 var(--clr-accent-glow);
+    }
+
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 12px transparent;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    from {
+        background-position: -300% center;
+    }
+
+    to {
+        background-position: 300% center;
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px var(--clr-accent-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 24px var(--clr-accent-glow), 0 0 48px rgba(79, 124, 255, .15);
+    }
+}
+
+@keyframes borderFlow {
+    0% {
+        border-color: var(--clr-accent);
+    }
+
+    33% {
+        border-color: var(--clr-indigo);
+    }
+
+    66% {
+        border-color: var(--clr-cyan);
+    }
+
+    100% {
+        border-color: var(--clr-accent);
+    }
+}
+
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, .5);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 14px transparent;
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+@keyframes counterUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        border-right-color: var(--clr-accent);
+    }
+
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes orbSpin {
+    from {
+        transform: rotate(0deg) translateX(80px) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(80px) rotate(-360deg);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toastSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-24px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ── Utility Animation Classes (apply via JS) ── */
+.anim-fadeIn {
+    animation: fadeIn var(--dur-slow) var(--ease-out) both;
+}
+
+.anim-fadeInUp {
+    animation: fadeInUp var(--dur-slow) var(--ease-out) both;
+}
+
+.anim-fadeInLeft {
+    animation: fadeInLeft var(--dur-slow) var(--ease-out) both;
+}
+
+.anim-scaleIn {
+    animation: scaleIn var(--dur-slow) var(--ease-spring) both;
+}
+
+.anim-slideInUp {
+    animation: slideInUp var(--dur-xslow) var(--ease-spring) both;
+}
+
+.anim-shake {
+    animation: shake .55s var(--ease-out);
+}
+
+.anim-pulse {
+    animation: pulse .8s var(--ease-out);
+}
+
+.anim-float {
+    animation: floatY 3s ease-in-out infinite;
+}
+
+.anim-glow {
+    animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+.anim-success {
+    animation: successPulse .7s var(--ease-spring);
+}
+
+/* Stagger delays */
+.anim-d1 {
+    animation-delay: .05s;
+}
+
+.anim-d2 {
+    animation-delay: .12s;
+}
+
+.anim-d3 {
+    animation-delay: .20s;
+}
+
+.anim-d4 {
+    animation-delay: .28s;
+}
+
+.anim-d5 {
+    animation-delay: .36s;
+}
+
+.anim-d6 {
+    animation-delay: .44s;
+}
+
+.anim-d7 {
+    animation-delay: .52s;
+}
+
+.anim-d8 {
+    animation-delay: .60s;
+}
+
+/* ── Scroll Reveal ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+
+.reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}

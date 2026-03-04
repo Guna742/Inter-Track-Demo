@@ -1,0 +1,497 @@
+/* =========================================
+   InternTrack — Students Page Styles
+   ========================================= */
+@import './global.css';
+
+/* ── Page Header ── */
+.students-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-6);
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+}
+
+.students-header h1 {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+}
+
+.students-count {
+    font-size: var(--fs-xs);
+    color: var(--clr-text-muted);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    padding: .25rem .75rem;
+    font-weight: var(--fw-medium);
+}
+
+/* ── Students List ── */
+.students-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+}
+
+/* ── Student Card ── */
+.student-card {
+    background: var(--clr-bg-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition:
+        border-color var(--dur-normal) var(--ease-out),
+        box-shadow var(--dur-normal) var(--ease-out);
+}
+
+.student-card:hover {
+    border-color: rgba(79, 124, 255, .25);
+    box-shadow: 0 4px 24px rgba(79, 124, 255, .08);
+}
+
+.student-card.expanded {
+    border-color: rgba(79, 124, 255, .35);
+    box-shadow: 0 8px 32px rgba(79, 124, 255, .12);
+}
+
+/* ── Card Summary Row (always visible) ── */
+.student-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-4) var(--sp-5);
+    cursor: pointer;
+    user-select: none;
+    transition: background var(--dur-fast);
+}
+
+.student-summary:hover {
+    background: rgba(255, 255, 255, .025);
+}
+
+/* Profile picture */
+.student-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--clr-accent), var(--clr-indigo));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    font-weight: var(--fw-bold);
+    color: #fff;
+    border: 2px solid rgba(79, 124, 255, .3);
+    position: relative;
+}
+
+.student-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-full);
+}
+
+.student-avatar-initials {
+    font-size: 1.35rem;
+    font-weight: var(--fw-bold);
+    color: #fff;
+}
+
+/* Name + role */
+.student-identity {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-name {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semi);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.student-role-tag {
+    font-size: var(--fs-xs);
+    color: var(--clr-text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Rating stars */
+.student-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    flex-shrink: 0;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    font-size: .9rem;
+    line-height: 1;
+}
+
+.star.filled {
+    color: var(--clr-warning);
+}
+
+.star.half {
+    color: var(--clr-warning);
+    opacity: .6;
+}
+
+.star.empty {
+    color: var(--clr-text-muted);
+}
+
+.rating-value {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
+    color: var(--clr-warning);
+    min-width: 24px;
+}
+
+/* Overall score pill */
+.student-score {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.score-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: conic-gradient(var(--clr-accent) var(--score-deg, 0deg), var(--glass-bg) 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 0 2px var(--glass-border);
+}
+
+.score-ring::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: var(--radius-full);
+    background: var(--clr-bg-surface);
+}
+
+.score-num {
+    position: relative;
+    z-index: 1;
+    font-size: .65rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-text-primary);
+    line-height: 1;
+}
+
+/* Expand arrow button */
+.expand-btn {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+        background var(--dur-fast),
+        border-color var(--dur-fast),
+        transform var(--dur-normal) var(--ease-spring);
+    color: var(--clr-text-muted);
+}
+
+.student-card.expanded .expand-btn {
+    transform: rotate(90deg);
+    background: rgba(79, 124, 255, .1);
+    border-color: rgba(79, 124, 255, .3);
+    color: var(--clr-accent);
+}
+
+/* ── Expanded Details Panel ── */
+.student-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-normal) var(--ease-out);
+    border-top: 0px solid var(--glass-border);
+}
+
+.student-card.expanded .student-details {
+    grid-template-rows: 1fr;
+    border-top-width: 1px;
+}
+
+.student-details-inner {
+    overflow: hidden;
+}
+
+.student-details-body {
+    padding: var(--sp-5) var(--sp-5);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+}
+
+/* Detail sections */
+.detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+}
+
+.detail-section-title {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--clr-text-muted);
+    margin-bottom: var(--sp-1);
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-2);
+}
+
+.detail-row-label {
+    font-size: var(--fs-xs);
+    color: var(--clr-text-muted);
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.detail-row-value {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-medium);
+    color: var(--clr-text-primary);
+}
+
+/* Progress bar */
+.progress-wrap {
+    margin-top: var(--sp-3);
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--fs-xs);
+    color: var(--clr-text-muted);
+    margin-bottom: var(--sp-2);
+}
+
+.progress-label span:last-child {
+    color: var(--clr-accent);
+    font-weight: var(--fw-semi);
+}
+
+.progress-track {
+    height: 6px;
+    background: var(--glass-bg);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--clr-accent), var(--clr-indigo));
+    transform-origin: left;
+    transition: transform .8s var(--ease-out);
+    transform: scaleX(0);
+}
+
+.student-card.expanded .progress-fill {
+    transform: scaleX(1);
+}
+
+/* Skills chips */
+.skills-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-top: var(--sp-2);
+}
+
+.skill-chip {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-medium);
+    padding: .2rem .6rem;
+    border-radius: var(--radius-full);
+    background: rgba(79, 124, 255, .1);
+    border: 1px solid rgba(79, 124, 255, .2);
+    color: var(--clr-accent);
+}
+
+/* Projects list in details */
+.student-projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-2);
+}
+
+.student-proj-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-xs);
+}
+
+.student-proj-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--clr-accent);
+    flex-shrink: 0;
+}
+
+.student-proj-name {
+    font-weight: var(--fw-medium);
+    color: var(--clr-text-primary);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Clickable project item link */
+.student-proj-link {
+    text-decoration: none;
+    transition:
+        background var(--dur-fast),
+        border-color var(--dur-fast);
+}
+
+.student-proj-link:hover {
+    background: rgba(79, 124, 255, .1);
+    border-color: rgba(79, 124, 255, .25);
+}
+
+.student-proj-link:hover .student-proj-name {
+    color: var(--clr-accent);
+}
+
+.proj-arrow {
+    flex-shrink: 0;
+    color: var(--clr-text-muted);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all var(--dur-fast) var(--ease-out);
+}
+
+.student-proj-link:hover .proj-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--clr-accent);
+}
+
+/* Edit profile row */
+.detail-edit-row {
+    grid-column: 1 / -1;
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+}
+
+/* ── Empty state ── */
+.students-empty {
+    text-align: center;
+    padding: var(--sp-16) var(--sp-8);
+    color: var(--clr-text-muted);
+}
+
+.students-empty-icon {
+    font-size: 3rem;
+    margin-bottom: var(--sp-4);
+}
+
+.students-empty p {
+    font-size: var(--fs-sm);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .student-details-body {
+        grid-template-columns: 1fr;
+    }
+
+    .student-score {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .students-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .student-summary {
+        padding: var(--sp-3) var(--sp-4);
+    }
+
+    .student-avatar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .student-rating {
+        display: none;
+    }
+}
+
+@media (max-width: 580px) {
+    .students-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-3);
+    }
+
+    .student-summary {
+        padding: var(--sp-4);
+        gap: var(--sp-3);
+    }
+
+    .student-avatar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .student-rating {
+        display: none;
+    }
+
+    .student-name {
+        font-size: var(--fs-sm);
+    }
+}
